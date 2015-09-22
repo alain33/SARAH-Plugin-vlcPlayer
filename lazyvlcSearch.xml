@@ -1,0 +1,29 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="rulelazyvlcSearch" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+  <rule id="rulelazyvlcSearch" scope="public">
+   
+    <tag>out.action=new Object(); </tag>
+	
+	<one-of>  
+		<!-- Cancel -->
+		<item>merci Sarah c'est tout<tag>out.action._attributes.context = "default";out.action._attributes.tts="A ton service"</tag></item>
+		
+		<!-- Start by the beginning (« A » et +) -->
+		<item>par le début<tag>out.action.command="begin"</tag></item>
+		<!-- Start by the end (« Z » et -) -->
+		<item>par la fin<tag>out.action.command="end"</tag></item>
+		<!-- Start by the middle and more (middle [out.action.pos] is « M » (26 letters/2) and + ) -->
+		<item>par le milieu et plus<tag>out.action.command="up";out.action.pos="13"</tag></item>
+		<item>par la lettre dé<tag>out.action.command="up";out.action.pos="4"</tag></item>
+		<item>par la lettre eux<tag>out.action.command="up";out.action.pos="5"</tag></item>
+		
+		
+		<!-- Start by the middle and minus (by default middle is « M » (ADD a [out.action.pos] and specify a value if you want) and - ) -->
+		<item>par le milieu et moins<tag>out.action.command="down"</tag></item>
+		<!-- Choosed by sarah - surprise!  -->
+		<item>comme tu veux<tag>out.action.command="random_pl_list"</tag></item>
+		<item>surprends-moi<tag>out.action.command="random_pl_list"</tag></item>
+	</one-of>
+
+    <tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/vlcPlayer"</tag>
+  </rule> 
+</grammar>

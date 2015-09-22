@@ -1,0 +1,102 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice"  root="rulevlcPlayer" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+
+  <rule id="rulevlcPlayer">
+    <tag>out.action=new Object(); </tag>
+    <item>Sarah</item>
+    
+    <one-of>
+		<!-- Configuration VLC -->
+		<item>donne moi le status de vlc<tag>out.action.config="true";out.action.command="config_status"</tag></item>
+		<item>mode configuration de vlc<tag>out.action.config="true";out.action.command="config_mode"</tag></item>
+	
+		<!-- Manage VLC -->
+		<item>lecteur vlc<tag>out.action.command="start_vlc"</tag></item>
+		<item>arrete le lecteur vlc<tag>out.action.command="stop_vlc";out.action.config="true"</tag></item>
+		<item>redémarre le lecteur vlc<tag>out.action.command="stop_start_vlc"</tag></item>
+		
+		<!-- Repeat the last play list -->
+		<item>rejoue la dernière play list<tag>out.action.command="pl_replay"</tag></item>
+		
+		<!-- Search by types -->
+		<item>musique par artiste<tag>out.action.command="search_music_by_artist"</tag></item>
+		<item>musique par album<tag>out.action.command="search_music_by_album"</tag></item>
+		<item>musique par titre<tag>out.action.command="search_music_by_title"</tag></item>
+		
+		<item>musique le meilleur de Tribute<tag>out.action.key="Artist:John Newman,Album:Tribute,Title:le meilleur de Tribute";out.action.command="set_music"</tag></item>
+		<item>musique Manau<tag>out.action.key="Artist:Manau,Album:Panique celtique,Title:album complet";out.action.command="set_music"</tag></item>
+		<item>musique Mes Préférées<tag>out.action.key="Title:Mes Préférées";out.action.command="set_music"</tag></item>
+		
+		<item>met la bande annonce quatre<tag>out.action.key="Category:a,Name:juju 1";out.action.command="set_video"</tag></item>
+		<item>met la bande annonce cinq<tag>out.action.key="Category:a,Name:Jeje";out.action.command="set_video"</tag></item>
+	
+	
+		<item>Vidéo par catégorie<tag>out.action.command="search_video_by_category"</tag></item>
+		<item>Vidéo par genre<tag>out.action.command="search_video_by_genre"</tag></item>
+		<item>Vidéo par nom<tag>out.action.command="search_video_by_name"</tag></item>
+		
+		<item>Radios par catégorie<tag>out.action.command="search_radio_by_category"</tag></item>
+		<item>Radios par genre<tag>out.action.command="search_radio_by_genre"</tag></item>
+		<item>Radios par nom<tag>out.action.command="search_radio_by_name"</tag></item>
+		
+		<item>Photo par catégorie<tag>out.action.command="search_picture_by_category"</tag></item>
+		<item>Photo par genre<tag>out.action.command="search_picture_by_genre"</tag></item>
+		<item>Photo par nom<tag>out.action.command="search_picture_by_name"</tag></item>
+		
+		<item>Chaine par catégorie<tag>out.action.command="search_TVchannel_by_category"</tag></item>
+		<item>Chaine par genre<tag>out.action.command="search_TVchannel_by_genre"</tag></item>
+		<item>Chaine par nom<tag>out.action.command="search_TVchannel_by_name"</tag></item>
+		<!-- End Search by types -->
+		
+		<!-- switch full screen/Normal -->
+		<item>mode plein écran<tag>out.action.command="full_screen_movie"</tag></item>
+		
+		<!-- purge play lists loaded in VLC -->
+		<item>supprime les play list<tag>out.action.command="empty"</tag></item>
+		<item>vide les play list<tag>out.action.command="empty"</tag></item>
+	
+		<!-- start play-->
+		<item>démarre la lecture<tag>out.action.command="play"</tag></item>
+		
+		<!-- Next play by type-->
+		<item>musique suivante<tag>out.action.command="next";out.action._attributes.tts="musique suivante"</tag></item>
+		<item>vidéo suivante<tag>out.action.command="next";out.action._attributes.tts="vidéo suivante"</tag></item>
+		<item>radio suivante<tag>out.action.command="next";out.action._attributes.tts="radio suivante"</tag></item>
+		<item>photo suivante<tag>out.action.command="next";out.action._attributes.tts="photo suivante"</tag></item>
+		<!-- Previous play by type-->
+		<item>musique précédente<tag>out.action.command="previous";out.action._attributes.tts="musique précédente"</tag></item>
+		<item>vidéo précédente<tag>out.action.command="previous";out.action._attributes.tts="vidéo précédente"</tag></item>
+		<item>radio précédente<tag>out.action.command="previous";out.action._attributes.tts="radio précédente"</tag></item>
+		<item>photo précédente<tag>out.action.command="previous";out.action._attributes.tts="photo précédente"</tag></item>
+		<!-- Random-->
+		<item>mode aléatoire<tag>out.action.command="random_play"</tag></item>
+		<!-- Volume -->
+		<item>mode variateur de volume<tag>out.action.command="volume"</tag></item>
+		<item>volume maxi<tag>out.action.command="volumeMax"</tag></item>
+		<item>volume mini<tag>out.action.command="volumeMini"</tag></item>
+		<!-- Stop-->
+		<item>stop la lecture<tag>out.action.command="stop"</tag></item>
+		<item>stop la musique<tag>out.action.command="stop"</tag></item>
+		<!-- Pause-->
+		<item>pause<tag>out.action.command="pause"</tag></item>
+		<!-- Reprise Pause-->
+		<item>reprise<tag>out.action.command="resume"</tag></item>
+		<!-- Reprise switch play/stop-->
+		<item>inverse<tag>out.action.command="inverse"</tag></item>
+		<!-- Repeat by type -->
+		<item>répète la musique<tag>out.action.command="repeat"</tag></item>
+		<item>répète la vidéo<tag>out.action.command="repeat"</tag></item>
+		<item>répète la play list<tag>out.action.command="loop"</tag></item>
+		<!-- Seek - lazy seek up or down -->
+		<item>mode plage de lecture<tag>out.action.command="seekMode"</tag></item>
+		
+		<!--non exhaustive list of sort modes. see the VLC Readme.txt, This doesn't work! it seams bugged.
+		    I saw several posts regarding a patch made by VideoLan but a little beat complicated to implement just for a sort. -->
+		<item>trie par nom<tag>out.action.command="sort";out.action.mode="Name"</tag></item>
+		<item>trie par auteur<tag>out.action.command="sort";out.action.mode="Author"</tag></item>
+		<item>trie par numéro de piste<tag>out.action.command="sort";out.action.mode="Track"</tag></item>
+		
+	</one-of>
+ 
+    <tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/vlcPlayer"</tag>
+  </rule>
+</grammar>

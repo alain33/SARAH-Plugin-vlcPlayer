@@ -1,0 +1,20 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="rulelazyvlcVolume" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+  <rule id="rulelazyvlcVolume" scope="public">
+   
+    <tag>out.action=new Object(); </tag>
+    
+	<one-of>  
+		<!-- Terminate -->
+		<item>merci Sarah<tag>out.action._attributes.context = "default";out.action._attributes.tts="A ton service"</tag></item>
+		
+		<!-- volume treatment -->
+		<item>augmente<tag>out.action.command="volumeUp";out.action.key=25</tag></item>
+		<item>baisse<tag>out.action.command="volumeDown";out.action.key=25</tag></item>
+		<item>volume maxi<tag>out.action.command="volumeMax"</tag></item>
+		<item>volume mini<tag>out.action.command="volumeMini"</tag></item>
+		<item>coupe le son<tag>out.action.command="volumeMini"</tag></item>
+	</one-of>
+
+    <tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/vlcPlayer"</tag>
+  </rule> 
+</grammar>

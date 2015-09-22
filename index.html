@@ -1,0 +1,508 @@
+<div id="vlcPlayer">
+  
+  <div class="row-fluid">
+      <div class="span8">
+          <p>
+           Le lecteur multimédia VLC est un lecteur, un encodeur et un diffuseur multimédia libre et gratuit fait par les volontaires de la communauté <a href="http://www.videolan.org/">VideoLAN</a>.<br>
+		   Ce super lecteur propose aussi des interfaces HTTP gratuites et excellentes pour Mobile Safari, Android et Web OS sur les Stores associés.
+		  <br><br>
+          </p>
+		  
+		   <div class="span4"><img src="/assets/vlcPlayer/images/vlcPlayer-logo.jpg" align="right" width="150"/></div>
+		 
+		  <h3>Versions</h3>
+		  <ul>
+            <li>VLC Média Player 2.1.5 Rincewind.</li>
+            <li>Sarah 3.1.6</li>
+          </ul>
+		  <h6>Mise à jour vers la version 4.0 de Sarah lorsqu'elle sera en version "Released".</h6>
+		  <br>
+		   <h3>vlcPlayer en quelques mots</h3>
+         <ul>
+            <li>Le contrôle par Sarah de vos médias audios, vidéos, flux radios, flux TV et photos.</li>
+            <li>Un mode VLC HTTP "Normal" avec interface et un mode HTTP sans interface.</li>
+			<li>Un contrôle des principales commandes du lecteur VLC.</li>
+            <li>La lecture directe d'un média.</li>
+			<li>Une base de données des médias par Types, Artiste/Catégorie, Album/Genre et Titre/Nom.</li>
+            <li>Un mode recherche simple et intuitif pour Sarah qui propose elle-même les titres en fonctions des critères que vous avez définis.</li>
+			<li>La modification simple de tous les thèmes et noms de média pour une prononciation "à l'Anglaise".</li>
+			<li>Plug-in multi-langages, tous les messages vocaux sont localisés.</li>
+          </ul>
+		  <br>
+		  <h3>1. Installation et configuration de VLC</h3>
+		  <p>
+			Le lecteur VLC ne nécessite aucune configuration pour être utilisé avec vlcPlayer.
+			Les requis pour une utilisation HTTP que vous pouvez trouver dans les documentations de VLC ne sont pas à exécuter.
+			Toutes les configurations sont à réaliser du coté vlcPlayer.
+          </p>
+		   <br>
+		  <h3>2. Configuration de vlcPlayer</h3>
+		  <p>
+			Le fichier <code>vlcPlayer.prop</code> est à configurer avant une première utilisation.
+          </p>
+		  
+          <table class='table table-bordered'>
+		    <tr><td><h6><b>Propriété</b></h6></td><td><h6><b>valeur par défaut</b></h6><td><h6><b>Description</b></h6></td></tr>
+            <tr><td><h6>language</h6></td><td><h6>FR_fr</h6><td><h6><b>Localise vlcPlayer.</b><br>
+											  Utilise un fichier de langage situé dans vlcPlayer/lib/lang/<em>PropValue</em>.js.<br><br>
+											  Les phases sont répertoriées par types et par paires "key":"value".<br>
+											  Modifier les phrases à votre convenance en <b>respectant</b> les blancs si présents en début et fin de phrase.<br>
+											  Vous pouvez aussi copier le fichier et le traduire pour une langue différente en précisant son nom dans la propriété.<br>
+											 (Exemple de fichier US_us pour l'anglais disponible.)
+											  </h6></td></tr>
+            <tr><td><h6>password</h6></td><td><h6>vlcremote</h6></td><td><h6><b>Mot de passe HTTP de VLC.</b><br>
+														  Modifiez le mot de passe par défaut à votre convenance.<br><br>
+														  Ce mdp vous sera demandé ensuite partout. Par exemple, avec l'interface Web, par un http://localhost:8085/ ou avec votre interface mobile.
+												        </h6></td></tr>
+            <tr><td><h6>path</h6></td><td><h6>C:/Apps/VLC Media Player</h6></td><td><h6><b>Répertoire d'installation de VLC.</b>.<br>
+														  Précisez le répertoire absolu avec la lettre de lecteur.<br><br>
+														  <b>Important:</b><br>
+														  VLC et les répertoires des Medias doivent être sur la même lettre de lecteur.
+												        </h6></td></tr>
+			<tr><td><h6>host</h6></td><td><h6>localhost</h6></td><td><h6><b>Host de la machine.</b><br>
+												 Entrez le nom ou l'adresse IP du serveur.<br>
+												</h6></td></tr>
+			<tr><td><h6>port</h6></td><td><h6>8085</h6></td><td><h6><b>Port HTTP pour VLC.</b><br>
+												 Modifiez le port d'écoute à votre convenance.<br>
+												 8085 par défaut, le port 8080 est utilisé par Sarah.
+												</h6></td></tr>	
+			<tr><td><h6>mode</h6></td><td><h6>http</h6></td><td><h6><b>Mode d'interface VLC.</b><br>
+												 Valeurs possibles:<br>
+												 <b>http</b><br>
+												 Interface "HTTP", mode sans interface. A noter que pour les vidéos ou la TV, le lecteur ouvre automatiquement une fenêtre.<br>
+												 <b>normal</b><br>
+												 Interface "Normal", mode de fonctionnement identique à un démarrage classique de VLC.<br>
+												 <br>
+												 <b>Note</b><br>
+												 Cette propriété peut être changée et sauvegardée directement par commande vocale dans le mode "configuration" de vlcPlayer.<br>
+												 Voir les chapitres suivants.
+												</h6></td></tr>		
+			<tr><td><h6>music_path<br>video_path<br>radio_path<br>picture_path<br>TVchannel_path</h6></td>
+												<td></td><td><h6><b>Répertoire d'accès aux médias par types.</b><br>
+												Précisez pour chacun des types de média <b>un répertoire absolu avec la lettre de lecteur</b> où les listes de lecture sont sauvegardées.<br><br>
+												
+												<b>Exemple de propriétés pour chacun des types:</b><br>
+												<em>C:/Mes Médias/Musiques<br>
+												C:/Mes Médias/vidéos<br>
+												C:/Mes Médias/Radios<br>
+												C:/Mes Médias/Photos<br>
+												C:/Mes Médias/TVChannels</em><br><br>
+												Si un type de media n'est pas utilisé, laissez à blanc la propriété ou enlevez-la.<br><br>
+												<b>Rappel important:</b><br>
+												VLC et les répertoires des Medias doivent être sur la même lettre de lecteur.</h6>
+												</td></tr>	
+			<tr><td><h6>pl_list_music_type<br>pl_list_video_type<br>pl_list_radio_type<br>pl_list_picture_type<br>pl_list_TVchannel_type</h6></td>
+			<td><h6>.xspf,.m3u,.m3u8<br>.avi,.xspf<br>.xspf,.m3u<br>.xspf<br>.m3u</h6></td><td><h6><b>Type de liste(s) de lecture par média.</b><br><br>
+												 Tous les types de fichiers sont possibles mais suivez ce conseil:<br><br>
+												 <b>Pour les média de type audio, créez des listes de lecture.</b><br><br> 
+												 Voir les chapitres suivants pour des explications et des exemples de bonnes pratiques.
+												</h6></td></tr>	
+			<tr><td><h6>playlist_autostart</h6></td><td><h6>true</h6></td><td><h6><b>Lecture automatique</b><br>
+												 Défini le démarrage automatique de la lecture après l'ajout de la liste de lecture dans VLC.<br>
+												  Valeurs possibles:<br>
+												 <b>true</b><br>
+												 Démarrage automatique de la lecture.<br>
+												 <b>false</b><br>
+												 La liste de lecture est juste ajoutée.<br>
+												 <br>
+												 <b>Note</b><br>
+												 Cette propriété peut être changée et sauvegardée directement par commande vocale dans le mode "configuration" de vlcPlayer.<br>
+												 Voir les chapitres suivants.
+												</h6></td></tr>		
+			<tr><td><h6>safe_mode</h6></td><td><h6>true</h6></td><td><h6><b>paramètres de sauvegarde</b><br>
+												 Réactualise les paramètres de VLC au démarrage avec ceux définis à sa fermeture.<br>
+												  Valeurs possibles:<br>
+												 <b>true</b><br>
+												 Les paramètres sont définis à l'ouverture de VLC.<br>
+												 <b>false</b><br>
+												 Les paramètres ne sont pas définis à l'ouverture de VLC.<br><br>
+												 Paramètres sauvegardés:<br>
+												 volume, écran normal/fullscreen, mode répétition de lecture,  mode répétition de playlist, mode aléatoire. 
+												 <br>
+												</h6></td></tr>		
+			<tr><td><h6>debug</h6></td><td><h6>false</h6></td><td><h6><b>Mode debug</b><br>
+												 Affiche les commentaires de debug dans la console de Sarah.<br>
+												 <b>true</b><br>
+												 Mode débug activé.<br>
+												 <b>false</b><br>
+												  Mode débug désactivé.<br>
+												</h6></td></tr>
+          </table>
+		  <br>
+		  <p>
+			A noter que vlcPlayer fixe le mode "mono-instance" de VLC. Autrement dit, un seul lecteur VLC est démarré et utilisé par vlcPlayer quelque soit le nombre de fois où la commande "Démarrer" est exécutée.
+          </p>
+		  
+		   <h3>3. Les commandes VLC</h3>
+		   Les commandes VLC suivantes sont gérées par vlcPlayer
+		   <ul>
+			<li>Démarrer VLC.</li>
+			<li>Arrêter VLC.</li>
+			<li>Redémarrer VLC.</li>
+            <li>Lecture</li>
+			<li>Lecture suivante</li>
+			<li>Lecture précédente</li>
+            <li>Stop la lecture</li>
+			<li>Pause</li>
+			<li>Reprise</li>
+			<li>Inverse</li>
+			<li>Repétition de lecture</li>
+			<li>Repétition de play list</li>
+			<li>Mode aléatoire</li>
+			<li>Volume minimum</li>
+			<li>Volume maximum</li>
+			<li>Volume - ou +</li>
+			<li>Avance lente</li>
+			<li>Avance rapide</li>
+			<li>Retour lent</li>
+			<li>Retour rapide</li>
+			<li>Plein écran</li>
+			<li>écran normal</li>
+			<li>Rejoue la dernière play list jouée</li>
+			<li>Vide les play lists</li>
+          </ul>
+		  Et bien sûr dans tous les types de média.  <br> 
+		  Les ordres vocaux sont fait "comme pour moi". Il est possible que vous deviez les changer suivant la configuration de Sarah, les modules et les ordres qui sont déjà définis pour éviter les "faux positifs" et les incompréhensions.<br>
+		  N'hésitez pas à modifer les targets associées à chaque ordre vocal dans tous les fichiers XML du module.
+		   <br> <br> 
+		   
+		  
+		  <h3>4. Le classement et sauvegarde des informations des Médias</h3>
+		  Le classement des médias est automatique et se fait par:
+		  <ul>
+			<li>Le type de média.</li>
+            <li>Les noms de répertoires où sont sauvegardées les listes de lecture.</li>
+            <li>Les noms des listes de lecture.</li>
+          </ul>
+		  
+		  Une base de données nedb (en mémoire) sauvegarde les informations extraites pour chaque média dans l'ordre des clés suivantes:
+		  <table class='table table-bordered'>
+			<tr><td><h6><b>Clé</b></h6></td><td><h6><b>Description</b></h6></td></tr>
+				<tr><td><h6>Type</h6></td><td><h6><b>Type de Média.</b><br>
+							Cette information est automatiquement récupérée du dernier répertoire de l'arborescence définie pour le type de média dans la propriété <em>media</em>_path du fichier <code>vlcPlayer.prop</code>.<br><br>
+							
+							Un exemple avec la propriété music_path:<br>
+							<em>C:/Mes Médias/Musiques</em><br>
+							Tous les sous-répertoires de "Musiques" seront vu par vlcPlayer comme des listes de lecture de Type "Musiques".<br>					
+							Une recherche sur le type "Musiques" se fera sur les données référencées pour ce Type uniquement.<br><br>
+							
+							A noter qu'il est possible de mettre directement des listes de lecture sous le répertoire "Type".<br>
+							Comme ces listes n'auront pas de catégorie, elle ne pourront être recherchées que par une recherche par "Titre"/"Nom".
+							</h6></td></tr>
+				<tr><td><h6>Category</h6></td><td><h6><b>Catégorie du type de média.</b><br>
+							Cette information est automatiquement récupérée du premier sous-répertoire du "Type".<br><br>
+							Prenons un exemple avec un Média de type "Musiques" et un classement par "Artiste" avec 2 Artistes.<br>
+							Mon arborescence se décompose ainsi:<br>
+							C:/Mes Médias/Musiques/<em>SuperTramp</em><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<em>Pink Floyd</em> <br><br>
+							Les 2 "Artistes" sont "SuperTramp" et "Pink Floyd"<br><br>
+							
+							Lors d'une recherche par "Artiste" (nom donné pour une recherche de type musique), tous les médias à partir de "Category" seront listés<br><br>
+							
+							A noter qu'il est possible de mettre directement des listes de lecture sous un répertoire "Category".<br>
+							Comme ces listes n'auront pas d'autres critères, elle ne pourront être recherchées que par une recherche par "Titre"/"Nom" et par "Artiste"/"Catégorie".
+				</h6></td></tr>
+				<tr><td><h6>Genre</h6></td><td><h6><b>Genre de Categorie du type de média.</b><br>
+							Cette information est automatiquement récupérée de tous les sous-répertoires d'une "Catégorie".<br><br>
+							Reprenons notre exemple avec nos 2 Artistes préférés, j'y ajoute 2 albums pour chacun d'eux.<br>
+							Mon arborescence se décompose ainsi:<br>
+							C:/Mes Médias/Musiques/SuperTramp/<em>Breakfast in America</em><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+															  <em>Crime of the Century</em> <br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+													Pink Floyd/<em>The Wall</em><br>	
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+															  <em>Atom Heart Mother</em> <br> <br>
+							Les 2 "Albums" pour SuperTramp sont "Breakfast in America" et "Crime of the Century"<br>
+							Les 2 "Albums" pour Pink Floyd sont "The Wall" et "Atom Heart Mother"<br><br>								
+							
+							Lors d'une recherche par "Albums" (nom donné pour une recherche de type musique), tous les médias à partir de "Albums" seront listés<br><br>
+							
+							Les listes pourront être recherchées par "Titre"/"Nom", par "Artiste"/"Catégorie" et "Album"/"Genre".<br><br>
+							
+							<b>Un peu plus loin...</b><br>	
+							Une information suplémentaire peut-être ajoutée dans la catégorisation et la recherche d'un média.<br>
+							Vous pouvez ajouter des sous-répertoires à "Genre". Ceux-ci seront vu par vlcPlayer (et nommé par Sarah) comme des "Sections".<br>
+							
+				</h6></td></tr>
+				<tr><td><h6>Nom</h6></td><td><h6><b>Nom d'une liste de lecture.</b><br>
+							Cette information est automatiquement récupérée de tous les noms de listes de lecture trouvées dans tous les répertoires.<br><br>
+							Plusieurs listes de lecture peuvent être sauvegardées dans chaque répertoire.
+							Reprenons notre exemple avec nos 2 Artistes préférés, leurs 2 albums pour chacun d'eux, j'ajoute pour le 1er, 2 listes de lecture.<br>
+							Mon arborescence se décompose ainsi:<br>
+							.../Musiques/SuperTramp/Breakfast in America/<em>Album complet.xspf</em><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																				   <em>Le meilleur de Breakfast in America.xspf</em><br><br>		
+							Vous aurez compris, je pourrais donc lire soit l'album complet ou seulement les meilleurs titres que j'ai regroupés dans <em>Le meilleur de Breakfast in America</em>	
+				</h6></td></tr>
+		  </table>
+		  
+		  Les déclinaisons sont nombreuses et peuvent être ajustées à votre convenance et pour chaque type de média.<br>
+		  Par exemple, la catégorie principale peut être un genre de musique, pop, rock, ou encore une année, etc... Il suffit juste de nommer correctement les répertoires et les play lists. Donc,
+		  pour les autres types de média, à vous de jouer!<br><br>
+		  
+		  Tous les noms de répertoires et listes de lecture peuvent être "anglisés" pour une prononciation plus correcte par Sarah.
+		  Cette personnalisation est effectuée dans le même fichier que pour la localisation de vlcPlayer
+		  situé dans vlcPlayer/lib/lang/<em>PropValue</em>.js. (voir la propriété "language")<br><br>
+		  "L'anglisation" est à réaliser dans le tableau "natural_voice" et par paires "key":"value".<br>
+		  Prenons un exemple avec une artiste et un album que Sarah, en bonne Française qui ne sait pas parler anglais, prononce comme une vache espagnole:<br>
+		 <ul>
+            <li>Bird York et son album, Seven Pound.</li>
+		  </ul>
+		  
+		  Dans le tableau "natural_voice", je vais ajouter:<br>
+		  <ul>
+			<li>"Bird York": "beurde yorque",</li>
+			<li>"Seven Pounds": "Séveune Pound",</li>
+		  </ul>
+		  Après cà, Sarah prononcera assez bien mon artiste préférée.<br>
+		  <b>Faites, attention aux virgules en fin de paire.</b><br><br>
+		  
+		  <h3>5. La lecture directe d'une play list</h3>
+		  Vous pouvez ajouter dans le fichier <code>vlcPlayer.xml</code> des commandes vocales directes pour ajouter à VLC une liste de lecture.<br><br>
+		  
+		  La clé <b>out.action.command</b> se décline comme ci-dessous:
+		  <ul>
+			<li>"set_music" pour un média musique.</li>
+			<li>"set_video" pour un média vidéo.</li>
+			<li>"set_radio" pour un média flux radio.</li>
+			<li>"set_TVchannel" pour un média flux TV.</li>
+			<li>"set_picture" pour un média photo.</li>
+		 </ul>
+
+		  La clé <b>out.action.key</b> permet de cibler la play list associée à la commande vocale, elle se décline comme ci-dessous:
+		   <table class='table table-bordered'>
+			<tr><td><h6><b>Valeur</b></h6></td><td><h6><b>Description</b></h6></td></tr>
+				<tr><td><h6>Artist ou Category</h6></td><td><h6><b>Category Media</b><br>
+								Clé définie par paire type:value.<br>
+								Cette clé est différenciée uniquement pour que Sarah formate son discour, soit: 
+								 <ul>
+									<li>"Artist" pour un média musique.</li>
+									<li>"Category" pour les autres médias.</li>
+								 </ul>
+								 
+								 Précisez l'artiste ou la catégorie de la play list, exemple:<br>
+								 Artist:SuperTramp<br><br>
+								 
+								 Si "out.action.key" ne contient que cette clé, toutes les play lists de l'artiste (ou la catégorie) seront ajoutées comme listes de lecture.
+				</h6></td></tr>
+				<tr><td><h6>Album ou Genre</h6></td><td><h6><b>Genre du Media</b><br>
+								Clé définie par paire type:value.<br>
+								Cette clé est différenciée uniquement pour que Sarah formate son discour, soit: 
+								 <ul>
+									<li>"Album" pour un média musique.</li>
+									<li>"Genre" pour les autres médias.</li>
+								 </ul>
+								 
+								 Précisez l'album ou le genre, exemple pour un album de l'artiste SuperTramp:<br>
+								 Artist:SuperTramp,Album:Breakfast in America<br><br>
+								 
+								  Si "out.action.key" ne contient que l'Artist et l'Album, toutes les play lists de l'album(ou le genre) seront ajoutées comme listes de lecture.
+				</h6></td></tr>
+				<tr><td><h6>Title ou Name</h6></td><td><h6><b>Nom du Media</b><br>
+								Clé définie par paire type:value.<br>
+								Cette clé est différenciée uniquement pour que Sarah formate son discour, soit: 
+								 <ul>
+									<li>"Title" pour un média musique.</li>
+									<li>"Name" pour les autres médias.</li>
+								 </ul>
+								 
+								 Précisez le nom de la play list , exemple pour un album de l'artiste SuperTramp:<br>
+								 Artist:SuperTramp,Album:Breakfast in America,Title:Le meilleur de Breakfast in America<br>
+				</h6></td></tr>
+		   </table>
+		   
+		  Les valeurs de la clé de recherche de "key" sont séparées par des virgules.<br>
+		  Suivants la position de la liste de lecture, la clé "key" peut avoir différentes formes.<br><br>
+		  <b>Exemple 1:</b> Une play list "Mes Préférées" directement sous le Type Musiques (e.g. Chapitre 3)(pas d'Artist, ni d'Album). La clé key ne peut logiquement avoir que le "Title".
+<pre>
+&lsaquo;item&rsaquo;musique Mes Préférées
+&lsaquo;tag&rsaquo;out.action.key="Title:Mes Préférées";out.action.command="set_music"&lsaquo;/tag&rsaquo;&lsaquo;/item&rsaquo;
+</pre>
+		  
+		  <b>Exemple 2:</b> Toutes les play lists de l'album "Panique Celtique" de l'Artiste "Manau":
+<pre>
+&lsaquo;item&rsaquo;musique Manau
+&lsaquo;tag&rsaquo;out.action.key="Artist:Manau,Album:Panique celtique";out.action.command="set_music"&lsaquo;/tag&rsaquo;&lsaquo;/item&rsaquo;
+</pre>
+
+	<b>Exemple 3:</b> La play list "Le meilleur de Tribute" de l'album "Tribute" de l'Artiste "John Newman":
+<pre>
+&lsaquo;item&rsaquo;musique Le meilleur de Tribute
+&lsaquo;tag&rsaquo;out.action.key="Artist:John Newman,Album:Tribute,Title:Le meilleur de Tribute";out.action.command="set_music"&lsaquo;/tag&rsaquo;&lsaquo;/item&rsaquo;
+</pre>
+
+Vous avez les explications pour faire vous-mêmes les commandes vocales directes pour les autres médias. :-)
+<br><br>
+
+<h3>6. La Recherche d'une play list par Sarah</h3>
+		  Nous connaissons tous la difficulté qu'a Sarah à comprendre des termes qui ne sont pas dans son dictionnaire.<br>
+		  Pour cette raison et donc pour éviter de s'époumonner à répéter 10 fois un titre en montant dans les aigus sans résultat, un mode recherche permet de cibler une play list assez rapidement.
+		  <br><br>C'est donc la gentille Sarah qui va nous dire les titres disponibles:
+		   <ul>
+			<li>Par Type de média</li>
+			<li>Par recherche typée</li>
+			<li>Dans l'ordre</li>
+			<li>La direction</li>
+		 </ul>
+		 que <b>JE</b> veux. Non mais, vilaine fille... :-D <br><br>
+		  
+		<h4>6.1 Examinons d'abord les recherches typées</h4>
+			vlcPlayer propose 3 recherches typées:
+			 <ul>
+				<li>Par Artiste ou Catégorie</li>
+				<li>Par Album ou Genre</li>
+				<li>Par Titre ou Nom</li>
+			 </ul>
+			
+			<h6>Mémo: Rappelez-vous, Artiste, Album et Titre pour la musique, le reste pour les autres médias.</h6>
+		  
+		   <table class='table table-bordered'>
+			<tr><td><h6><b>Type</b></h6></td><td><h6><b>Description</b></h6></td></tr>
+			<tr><td><h6>Artiste ou Catégorie</h6></td><td><h6><b>Recherche par Artiste ou catégorie</b><br>
+							Sarah effectue un ciblage des play lists qui ont une catégorie dans le Type défini dans la clé <em>out.action.command</em> du fichier <code>vlcPlayer.xml</code>	
+				</h6></td></tr>
+			<tr><td><h6>Album ou Genre</h6></td><td><h6><b>Recherche par Album ou Genre</b><br>
+							Sarah effectue un ciblage des play lists des Albums ou Genre dans le Type défini dans la clé <em>out.action.command</em> du fichier <code>vlcPlayer.xml</code>	
+			</h6></td></tr>
+			<tr><td><h6>Titre ou Nom</h6></td><td><h6><b>Recherche par Titre ou Nom</b><br>
+							Sarah effectue un ciblage des play lists par Titre ou Nom dans le Type défini dans la clé <em>out.action.command</em> du fichier <code>vlcPlayer.xml</code>	
+							<br><br><b>Note:</b> En théorie, toutes les play lists.
+			</h6></td></tr>
+		</table>
+		
+		<h4>6.2 L'ordre</h4>
+			L'ordre ne peut pas être changé et est défini par ordre alphabétique sur la première lettre du Type de recherche (tableau 5.1 çi-dessus).<br>
+			<br>
+			
+			Tout d'abord, lorsque une action de recherche est effectuée, le lazy <code>lazyvlcSearch.xml</code> est activé comme context.<br>
+			Après un choix, on en sort automatiquement. Pas la peine d'utiliser l'action pour sortir qui est là uniquement pour annuler le mode (au cas où).<br>
+			
+			<br>L'ordre alphabétique est automatique
+			 <ul>
+				<li>par le début</li>
+				<li>par la fin</li>
+			 </ul>
+			bien sûr, puisque par le début la recherche s'effectue de A à Z et par la fin de Z à A.<br><br>
+			
+			Mais (et c'est là que c'est très intéressant), suivant la commande vocale et la valeur de la clé <em>out.action.pos</em>, Sarah commence à rechercher à partir de la position de la lettre que vous avez défini.
+			
+			Vous trouverez dans le <code>lazyvlcSearch.xml</code> un exemple de début de recherche avec les commandes vocales:
+			<ul>
+				<li>par le milieu et plus</li>
+				<li>par le milieu et moins</li>
+			 </ul>
+			qui, comme la commande le suggère, fait commencer la recherche alphabétique par Sarah à la position  <code>13</code> qui est la position du <code>M</code> dans l'alphabet.
+			<br>Il ne reste que l'imagination pour définir des commandes vocales et cibler des lettres qui vous interessent.
+			<br><br>
+		<h4>6.3 La direction</h4>
+			Le direction permet de rechercher par ordre alphabétique en montant ou descendant dans l'alphabet.<br>
+			Autrement dit, de A à Z ou de Z à A.<br><br>
+			
+			Il est automatique pour la recherche par le début ou par la fin mais peut être configuré pour les autres recherches.<br>
+			<em>out.action.command="up"</em> ou <em>out.action.command="down"</em>
+		<br><br>
+		<h4>6.4 Conclusion</h4>	
+			En réfléchissant un tout petit peu pour savoir à quelle position dans l'alphabet la première lettre de la play list que l'on veut ajouter à VLC se situe, en ciblant le Type et la direction de recherche,
+			la play list peut être retrouvée assez rapidement.<br><br>
+			
+			N'hésitez pas à ajouter des recherches dans le <code>lazyvlcSearch.xml</code>. 
+		<br><br>
+		<h4>6.5 En pratique</h4>	
+		Voici un exemple de ce que Sarah peut nous dire avec le jeu de réponses que vous pouvez donner.<br>
+		Supposons que je cherche une play list:
+		<ul>
+			<li>De John Newman</li>
+			<li>De son album Tribute</li>
+			<li>Je sais que j'ai fait plusieurs play lists sur cet album mais pas la peine de le demander à Sarah... elle comprend rien ;-). Ok, j'avoue, c'est parce que je n'ai pas créé de lecture directe pour ces play lists sinon elle les aurait comprises. Médisant que je suis...</li>
+		</ul>
+		je vais donc demander:
+		<ul>
+			<li>une recherche typée par Album.</li>
+		    <li>Qui commence par le milieu</li>
+			<li>et plus (dans l'ordre alphabétique)</li>
+		</ul>
+		<h6>le <code>T</code> pour moi est très proche du <code>M</code>, j'ai très peu de play lists avec un Album dont le nom commence entre ces 2 lettres.
+		Ce qui n'est pas le cas avec les Artistes et les Titres. Pour d'autres play lists, le Titre aurait été mieux, ou... l'Artiste.</h6>
+		
+		<b>C'est parti:</b><br>
+		<code>Moi</code>Sarah Musique par Album<br>
+		<code>Sarah</code>Recherche de musique par album, comment dois-je chercher?<br>
+		<code>Moi</code>Par le milieu et plus<br>
+		<code>Sarah</code>Album Panique Celtique, Musique Album Complet, Artiste Manau<br>
+		<code>Moi</code>Non<br>
+		<code>Sarah</code>Album Seven Pound, Musique Le meilleur de Bird, Artiste Bird York<br>
+		<code>Moi</code>Non<br>
+		<code>Sarah</code>Album Tribute, Musique Le meilleur de Tribute, Artiste John Newman<br>
+		<code>Moi</code>Oui<br>
+		<code>Sarah</code>Ajouté et terminé<br>
+		<code>VLC</code>La play list est ajoutée et démarre<br>
+		<h6>le suivant aurait été Album Tribute, Musique Album complet, Artiste John Newman.</h6>
+		<br>
+		
+		<h4>6.6 Les autres réponses possibles</h4>	
+		Aux questions de Sarah, les réponses suivantes peuvent être apportées:<br>
+		<ul>
+		<li><code>Oui</code>Arrête le mode question/réponse et ajoute la play list dans VLC.</li>
+		<li><code>Ajoute</code>Même effet que le précédent.</li>
+		<li><code>Oui et encore</code>Ajoute la play list dans VLC et continue le mode question/réponse</li>
+		<li><code>Ajoute et encore</code>Même effet que le précédent.</li>
+		<li><code>Non</code>Passe au suivant</li>
+		<li><code>Suivant</code>Passe au suivant</li>
+		<li><code>ca suffit</code>Arrête le mode question/réponse</li>
+		<li><code>c'est bon</code>Arrête le mode question/réponse</li>
+		<li><code>Terminé</code>Arrête le mode question/réponse</li>
+		<li><code>Annule</code>Arrête le mode question/réponse</li>
+		<li><code>Cancel</code>Arrête le mode question/réponse</li>
+		</ul>
+		<br>
+		<h4>6.7 A savoir</h4>	
+		Les questions de Sarah sont associées au type de Media recherché et aux critères de recherche, par exemple:<br>
+		Une recherche par Artiste donne:<br>
+		Artiste John Newman, Album Tribute, Musique Le meilleur de Tribute<br><br>
+		Une recherche par Titre donne:<br>
+		Musique Le meilleur de Tribute, Album Tribute, Artiste John Newman<br><br>
+		Une recherche d'une vidéo par Catégorie donne:<br>
+		Catégorie Ridley Scott, Genre Science fiction, Nom Alien
+		<h6>Sans surprise, vous savez comment je suis arrivé à ce classement de vidéo... :-)</h6>
+		Une recherche d'une Radio par Catégorie peut donner:<br>
+		Catégorie Radios droles, Nom Rire et chansons
+		<h6>Sans surprise, vous savez aussi comment je suis arrivé à ce classement de radio... :-)</h6>
+		<br>
+		<h4>6.8 Cadeau Bonus!</h4>
+			Le mode de recherche permet de laisser Sarah choisir pour vous au hasard dans toutes les play lists!<br>
+			<b>C'est parti:</b><br>
+			<code>Moi</code>Sarah Musique par Album<br>
+			<code>Sarah</code>Recherche de musique par album, comment dois-je chercher?<br>
+			<code>Moi</code>Comme tu veux  (ou "surprends-moi")<br>
+			<code>Sarah</code>Super!.. alors quelque chose de bien. Voyons voir..., je met Album Tribute, Musique Le meilleur de Tribute, Artiste John Newman<br>
+			<code>VLC</code>La play list est ajoutée et démarre<br><br><br>
+		
+		<br><br>
+		
+		<h4>8. Configuration</h4>	 
+		vlcPlayer dispose d'un mode configuration vocale.<br>
+		Lorsque la commande "mode configuration de vlc" est activée, le lazy <code>lazyvlcConfig.xml</code> est activé comme context.<br>
+		Utilisez:
+		<ul>
+			<li><code>Merci sarah c'est tout</code> Pour sortir du mode en sauvegardant en mémoire uniquement et sans changer la configuration dans le <code>custom.prop</code> de Sarah.</li>
+			<li><code>merci Sarah sauvegarde</code> Pour sortir du mode et sauvegarder la configuration dans le <code>custom.prop</code> de Sarah.</li>
+		</ul>
+		<br>
+		Les configurations ou demandes possibles sont:<br>
+		<ul>
+			<li><code>donne moi le status actuel</code>Liste l'état général de VLC</li>
+			<li><code>auto start à on</code>Permet de configurer vocalement la propriété <em>playlist_autostart</em> à <code>true</code> du fichier <code>vlcPlayer.prop</code></li>
+			<li><code>auto start à off</code>Permet de configurer vocalement la propriété <em>playlist_autostart</em> à <code>false</code> du fichier <code>vlcPlayer.prop</code></li>
+			<li><code>Met vlc en mode HTTP</code>Permet de configurer vocalement la propriété <em>mode</em> à <code>http</code> du fichier <code>vlcPlayer.prop</code></li>
+			<li><code>Met vlc en mode normal</code>Permet de configurer vocalement la propriété <em>mode</em> à <code>normal</code> du fichier <code>vlcPlayer.prop</code></li>
+		</ul>
+		<br>	
+		<br>	
+	</div>
+     
+  </div> 
+  
+</div>

@@ -1,0 +1,27 @@
+{
+  "modules" : { 
+    "vlcPlayer" : {
+      "description": "vlc Media Player plugin Sarah",
+      "version": "1.0",
+	  "debug": "true",
+	  "language": "FR_fr",
+	  "password": "vlcremote",
+	  "path": "C:/program files (x86)/videolan/vlc",
+	  "host": "localhost",
+	  "port": "8085",
+	  "mode": "normal",
+	  "music_path": "c:/Apps/Media/Playlists",
+	  "video_path": "c:/Apps/Media/Movies",
+	  "radio_path": "c:/Apps/Media/Radios",
+	  "picture_path": "c:/Apps/Media/Photos",
+	  "TVchannel_path": "c:/Apps/Media/TVchannel",
+	  "pl_list_music_type": ".xspf,.m3u,.m3u8",
+	  "pl_list_radio_type": ".xspf,.m3u",
+	  "pl_list_video_type": ".avi,.vob",
+	  "pl_list_picture_type": ".xspf",
+	  "pl_list_TVchannel_type": ".m3u",
+	  "playlist_autostart": "true",
+	  "safe_mode": "true"
+    }
+  }
+}

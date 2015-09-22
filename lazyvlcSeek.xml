@@ -1,0 +1,21 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="rulelazyvlcSeek" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+  <rule id="rulelazyvlcSeek" scope="public">
+   
+    <tag>out.action=new Object(); </tag>
+	
+	<one-of>  
+		<!-- Terminate -->
+		<item>merci Sarah<tag>out.action._attributes.context = "default";out.action._attributes.tts="A ton service"</tag></item>
+		
+		<!-- Seek treatment -->
+		<item>avance beaucoup<tag>out.action.command="seekUp";out.action.key="50";out.action._attributes.tts="j'avance beaucoup"</tag></item>
+		<item>avance encore<tag>out.action.command="seekUp";out.action.key="10";out.action._attributes.tts="j'avance"</tag></item>
+		<item>recule beaucoup<tag>out.action.command="seekDown";out.action.key="50";out.action._attributes.tts="je recule beaucoup"</tag></item>
+		<item>recule encore<tag>out.action.command="seekDown";out.action.key="10";out.action._attributes.tts="je recule"</tag></item>
+		<item>recule au début<tag>out.action.command="seekDownMaxi"</tag></item>
+		
+	</one-of>
+
+    <tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/vlcPlayer"</tag>
+  </rule> 
+</grammar>

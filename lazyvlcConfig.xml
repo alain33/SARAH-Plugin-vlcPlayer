@@ -1,0 +1,24 @@
+<grammar version="1.0" xml:lang="fr-FR" mode="voice" root="rulelazyvlcConfig" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
+  <rule id="rulelazyvlcConfig" scope="public">
+   
+    <tag>out.action=new Object(); </tag>
+	
+	<one-of>  
+		<!-- Save without saving in Sarah.prop -->
+		<item>merci Sarah c'est tout<tag>out.action.config="true";out.action.command="config_not_save";out.action._attributes.context="default"</tag></item>
+		<!-- Save with saving in Sarah.prop -->
+		<item>merci Sarah sauvegarde<tag>out.action.config="true";out.action.command="config_save";out.action._attributes.context = "default"</tag></item>
+		
+		<!-- Statut, can be called in vlcPlayer.xml too-->
+		<item>donne moi le status actuel<tag>out.action.config="true";out.action.command="config_status"</tag></item>
+		
+		<!-- Other possible changes-->
+		<item>auto start à off<tag>out.action.config="true";out.action.command="auto_start_off"</tag></item>
+		<item>auto start à on<tag>out.action.config="true";out.action.command="auto_start_on"</tag></item>
+		<item>Met vlc en mode HTTP<tag>out.action.config="true";out.action.command="vlc_http_mode"</tag></item>
+		<item>Met vlc en mode normal<tag>out.action.config="true";out.action.command="vlc_normal_mode"</tag></item>
+	</one-of>
+
+    <tag>out.action._attributes.uri="http://127.0.0.1:8080/sarah/vlcPlayer"</tag>
+  </rule> 
+</grammar>
