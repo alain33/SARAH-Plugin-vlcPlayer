@@ -1044,7 +1044,6 @@ var set_media = function (mode, key, path) {
 		return;
 	}
 	
-	
 	if (Name) {
 		db.findOne({Type: dbtype, Name: Name }, function (err, doc) {	
 			if (err){
@@ -1382,6 +1381,9 @@ Playlists/Supertramp/Crime of the Century/Crime of the Century.xspf
 */
 var get_pl_list  = function(type, path, callback) {
 	
+	if (!path || path == '')
+		return callback(true);
+		
 	path = (( path.slice(-1) == '/') ? path.slice(0,-1) : path);
 	if (debug == 'true') console.log("Path: " + path);
 	
