@@ -6,23 +6,6 @@ on top of:
 * NodeJS (ExpressJS) server for Internet of Things communication
 
 ## License
-
-```
-            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
-                    Version 2, December 2004
-
- Copyright (C) 2012 S.A.R.A.H. <sarah.project@encausse.net>
-
- Everyone is permitted to copy and distribute verbatim or modified
- copies of this license document, and changing it is allowed as long
- as the name is changed.
-
-            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
-   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
-
-  0. You just DO WHAT THE FUCK YOU WANT TO.
-```
-
 ```
  This program is free software. It comes without any warranty, to
  the extent permitted by applicable law. You can redistribute it
@@ -33,10 +16,39 @@ on top of:
 
 
 ## Description
+Le plus complet plugin d'intégration de vlc media player avec Sarah !
 
-A plugin to control VLC Media Player Home Automation Box
+- Le contrôle par Sarah de vos médias audios, vidéos, flux radios, flux TV et photos.
+- Un mode VLC HTTP "Normal" avec interface et un mode "HTTP" sans interface.
+- La lecture directe d'un média.
+- Une base de données des médias par Artiste/Catégorie, Album/Genre et Titre/Nom.
+- Mode recherche avancée par Artiste/Catégorie, Album/Genre et Titre/Nom:
+	- Recherche par ordre alphabétique en commençant:
+		- Par le début.
+		- Par la fin.
+		- La lettre de son choix.
+		- En montant ou descendant dans l'alphabet.
+		- En passant les titres.
+		- Sarah énnonce les titres trouvés.
+- Un contrôle des principales commandes de VLC par règle:
+	- Etat de VLC.
+	- Ouverture/Fermeture de VLC.
+	- Rejoue la dernière play list.
+	- Vide les playlists.
+	- Lecture/Arrêt/Pause/Reprise.
+	- Musique/Vidéo/Radio/Photo suivante/précédente.
+	- Mode plein écran.
+	- Mode aléatoire On/Off.
+	- Mode Répétition On/Off.
+	- Volume mini/maxi.
+	- Mode variateur de volume.
+	- Mode plage de lecture (seek)
+
 
 ## Quick Start
 
 Donwload the plugin from SARAH's AppStore and follow online plugin's documentation  
    
+## Versions
+Version 1.0 
+- Version Released
