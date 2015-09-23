@@ -281,12 +281,13 @@ exports.action = function(data, callback, config, SARAH){
 															break;
 											}
 											}); 
-									})}
+									})},
+		manuel_stop_vlc: function() { SARAH.context.vlcPlayer.vlcExeChild = null}
 	};
 	
 	if (debug == 'true') console.log("data.command: " + data.command);
 	
-	if (!SARAH.context.vlcPlayer.vlcExeChild && data.config != 'true')
+	if ((!SARAH.context.vlcPlayer.vlcExeChild || SARAH.context.vlcPlayer.vlcExeChild == null)&& data.config != 'true')
 		// Load VLC and nedb if not started
 		start_vlc_load_nedb (_vlcConf, function () {
 			if (db) {

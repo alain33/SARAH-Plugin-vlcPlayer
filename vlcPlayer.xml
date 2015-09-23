@@ -13,6 +13,7 @@
 		<item>lecteur vlc<tag>out.action.command="start_vlc"</tag></item>
 		<item>arrete le lecteur vlc<tag>out.action.command="stop_vlc";out.action.config="true"</tag></item>
 		<item>redémarre le lecteur vlc<tag>out.action.command="stop_start_vlc"</tag></item>
+		<item>J'ai arreté le lecteur vlc<tag>out.action.command="manuel_stop_vlc";out.action._attributes.tts="d'accord"</tag></item>
 		
 		<!-- Repeat the last play list -->
 		<item>rejoue la dernière play list<tag>out.action.command="pl_replay"</tag></item>
@@ -26,8 +27,9 @@
 		<item>musique Manau<tag>out.action.key="Artist:Manau,Album:Panique celtique,Title:album complet";out.action.command="set_music"</tag></item>
 		<item>musique Mes Préférées<tag>out.action.key="Title:Mes Préférées";out.action.command="set_music"</tag></item>
 		
-		<item>met la bande annonce quatre<tag>out.action.key="Category:a,Name:juju 1";out.action.command="set_video"</tag></item>
-		<item>met la bande annonce cinq<tag>out.action.key="Category:a,Name:Jeje";out.action.command="set_video"</tag></item>
+		<item>met la bande annonce quatre<tag>out.action.key="Category:a,Name:adieu la pluie";out.action.command="set_video"</tag></item>
+		<item>met la bande annonce cinq<tag>out.action.key="Category:a,Name:juju 1";out.action.command="set_video"</tag></item>
+		<item>met la bande annonce six<tag>out.action.key="Name:Jiji";out.action.command="set_video"</tag></item>
 	
 	
 		<item>Vidéo par catégorie<tag>out.action.command="search_video_by_category"</tag></item>
