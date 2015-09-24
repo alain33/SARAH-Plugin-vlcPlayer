@@ -50,7 +50,7 @@
 		<!-- End Search by types -->
 		
 		<!-- switch full screen/Normal -->
-		<item>mode plein écran<tag>out.action.command="full_screen_movie"</tag></item>
+		<item>Inverse l'écran<tag>out.action.command="full_screen_movie"</tag></item>
 		
 		<!-- purge play lists loaded in VLC -->
 		<item>supprime les play list<tag>out.action.command="empty"</tag></item>
